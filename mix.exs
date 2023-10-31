@@ -8,6 +8,8 @@ defmodule Monocle.MixProject do
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      description: description(),
+      package: package(),
 
       # Docs
       name: "Monocle",
