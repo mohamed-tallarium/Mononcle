@@ -7,7 +7,17 @@ defmodule Monocle.MixProject do
       version: "0.0.1",
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+
+      # Docs
+      name: "Monocle",
+      source_url: "https://github.com/mohamed-tallarium/Mononcle",
+      docs: [
+        # The main page in the docs
+        main: "Monocle",
+        logo: "monocle.jpg",
+        extras: ["README.md"]
+      ]
     ]
   end
 
@@ -21,7 +31,8 @@ defmodule Monocle.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:floki, ">= 0.30.0"}
+      {:floki, ">= 0.30.0"},
+      {:ex_doc, "~> 0.27", only: :dev, runtime: false}
     ]
   end
 end
