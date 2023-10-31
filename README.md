@@ -1,6 +1,37 @@
 # Monocle
 
-**TODO: Add description**
+This is a library for working with the [Monocle](https://github.com/mohamed-tallarium/Mononcle).
+This library is built on top of [Floki](https://github.com/philss/floki) and it allows for easier
+testing of DOM elements in liveview tests.
+
+## Usage
+
+Let's say you have a liveview component that looks like this once rendered:
+
+```html
+  <div data-test-user="id-34">
+    <h1 data-test="name">Bob Doe</h1>
+    <p data-test-age>23</p>
+  </div>
+  <div data-test-user="id-38">
+    <h1 data-test="name">Alice Smith</h1>
+    <p data-test-age>23</p>
+  </div>
+```
+
+We can then test this component like so:
+
+```elixir
+  test "it renders the users" do
+    {:ok, view, html} = live(conn, "/path/to/liveview")
+
+    assert html|> Monocle.we_see_exactly(2, attribute: "age", content: "23")
+    assert html|> Monocle.we_see_attribute_and_value("user", "id-34")
+    assert html|> Monocle.we_see_attribute_and_value("user", "id-38")
+    assert html|> Monocle.we_see_attribute_value("name", content: "Bob Doe")
+    assert html|> Monocle.we_see_attribute_value("name", content: "Alice Smith")
+  end
+```
 
 ## Installation
 
@@ -14,6 +45,11 @@ def deps do
   ]
 end
 ```
+
+## Dependencies
+
+This library depends on [Floki](https://github.com/philss/floki) as it uses the `Floki.find/2` function
+to find elements in the DOM.
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
