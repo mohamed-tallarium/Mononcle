@@ -52,8 +52,3 @@ end
 
 This library depends on [Floki](https://github.com/philss/floki) as it uses the `Floki.find/2` function
 to find elements in the DOM.
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/monocle>.
-
