@@ -1,8 +1,10 @@
 # Monocle
 
-This is a library for working with the [Monocle](https://github.com/mohamed-tallarium/Mononcle).
+This is a library for working with the [Monocle](https://hexdocs.pm/monocle).
 This library is built on top of [Floki](https://github.com/philss/floki) and it allows for easier
 testing of DOM elements in liveview tests.
+
+You can find the documentation for this library in theis [hexdocs page](https://hexdocs.pm/monocle).
 
 ## Usage
 
