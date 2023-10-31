@@ -21,6 +21,17 @@ defmodule Monocle.MixProject do
     ]
   end
 
+  defp description() do
+    "A library for detecting existing HTML elements on a page or a component in liveview"
+  end
+
+  defp package() do
+    [
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/mohamed-tallarium/Mononcle"}
+    ]
+  end
+
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
