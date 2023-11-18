@@ -5,7 +5,7 @@ defmodule Monocle.MixProject do
     [
       app: :monocle,
       version: "0.0.1",
-      elixir: "~> 1.15",
+      elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       description: description(),
