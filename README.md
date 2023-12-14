@@ -38,12 +38,12 @@ We can then test this component like so:
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `monocle` to your list of dependencies in `mix.exs`:
+by adding `monocle` to your list of dependencies in `mix.exs` as a test dependency:
 
 ```elixir
 def deps do
   [
-    {:monocle, "~> 0.0.1"}
+    {:monocle, "~> 0.0.1", only: :test}
   ]
 end
 ```
