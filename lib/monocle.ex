@@ -330,6 +330,21 @@ defmodule Monocle do
     |> number_of_elements_with_content(content) >= number
   end
 
+  def we_see_table(html, attribute, content) do
+    [element] = table_by_attribute(html, attribute)
+
+    [actual_header | actual_body] =
+      element
+      |> Floki.find("tr")
+      |> Enum.map(fn row ->
+        Floki.find(row, "th, td") |> Enum.map(&Floki.text(&1, deep: false))
+      end)
+
+    [expected_header | expected_body] = parse_table(content)
+
+    actual_header == expected_header and actual_body == expected_body
+  end
+
   # helper functions
   defp number_of_elements_with_content(list, content) do
     Enum.reduce(list, 0, fn element, acc ->
@@ -360,6 +375,21 @@ defmodule Monocle do
 
     document
     |> Floki.find("[data-test=\"#{attribute_value}\"]")
+  end
+
+  defp table_by_attribute(html, attribute) do
+    {:ok, document} = Floki.parse_document(html)
+
+    document
+    |> Floki.find("table[data-test-#{format_attribute(attribute)}]")
+  end
+
+  defp parse_table(content) do
+    content
+    |> String.split("\n")
+    |> Enum.map(&String.trim/1)
+    |> Enum.reject(&(&1 == ""))
+    |> Enum.map(&String.split(&1, ~r/\s\s+/))
   end
 
   defp format_attribute(attribute) do
