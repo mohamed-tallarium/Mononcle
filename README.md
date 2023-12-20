@@ -52,3 +52,6 @@ end
 
 This library depends on [Floki](https://github.com/philss/floki) as it uses the `Floki.find/2` function
 to find elements in the DOM.
+
+Monocle is tested with elixir versions [1.12](https://elixir-lang.org/blog/2021/05/19/elixir-v1-12-0-released/) and up,
+lower versions may work but are not officially supported.
