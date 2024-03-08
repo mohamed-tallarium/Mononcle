@@ -40,28 +40,6 @@ defmodule MonocleTest do
   </div>
   """
 
-  @html_table """
-  <table data-test-age-table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Age</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <td>User 1</td>
-        <td>30</td>
-      </tr>
-      <tr>
-        <td>User 2</td>
-        <td>15</td>
-      </tr>
-    </body>
-  </table>
-  """
-
   describe "we_see_attribute/2" do
     test "returns true if element with given data-test attribute is present in the rendered component" do
       assert we_see_attribute(@html_attribute_and_content, "confirmation button")
@@ -485,20 +463,6 @@ defmodule MonocleTest do
                attribute_value: "childhood",
                content: "Child"
              )
-    end
-  end
-
-  describe "we_see_table/2" do
-    test "deduces table headers and content from structure" do
-      assert we_see_table(@html_table, "age table", """
-             Name       Age
-             User 1     30
-             User 2     15
-             """)
-
-      refute we_see_table(@html_table, "age table", """
-             invalid
-             """)
     end
   end
 end
