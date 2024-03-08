@@ -357,23 +357,20 @@ defmodule Monocle do
   end
 
   defp element_by_attribute(html, attribute) do
-    {:ok, document} = Floki.parse_document(html)
-
-    document
+    html
+    |> Floki.parse_document!()
     |> Floki.find("[data-test-#{format_attribute(attribute)}]")
   end
 
   defp element_by_attribute_and_value(html, attribute, attribute_value) do
-    {:ok, document} = Floki.parse_document(html)
-
-    document
+    html
+    |> Floki.parse_document!()
     |> Floki.find("[data-test-#{format_attribute(attribute)}=\"#{attribute_value}\"]")
   end
 
   defp element_by_attribute_value(html, attribute_value) do
-    {:ok, document} = Floki.parse_document(html)
-
-    document
+    html
+    |> Floki.parse_document!()
     |> Floki.find("[data-test=\"#{attribute_value}\"]")
   end
 
