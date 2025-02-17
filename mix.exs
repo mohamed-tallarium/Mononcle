@@ -4,7 +4,7 @@ defmodule Monocle.MixProject do
   def project do
     [
       app: :monocle,
-      version: "0.0.2",
+      version: "1.0.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -44,7 +44,7 @@ defmodule Monocle.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:floki, ">= 0.30.0"},
+      {:floki, ">= 0.37.0"},
       {:ex_doc, "~> 0.27", only: :dev, runtime: false}
     ]
   end
