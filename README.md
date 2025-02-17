@@ -43,7 +43,7 @@ by adding `monocle` to your list of dependencies in `mix.exs` as a test dependen
 ```elixir
 def deps do
   [
-    {:monocle, "~> 0.0.1", only: :test}
+    {:monocle, "~> 1.0.0", only: :test}
   ]
 end
 ```
